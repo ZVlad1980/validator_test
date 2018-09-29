@@ -1,0 +1,111 @@
+================================================
+Validate AUTHORS
+================================================
+
+FIRST SCAN
+
+PRODUCT_XREF
+
+   ID_XREF SYSTEM                   OBJ_ID END_DATE        OUT_OF_PRINT_DA TITLE                                        
+---------- -------------------- ---------- --------------- --------------- ------------------------------               
+       371 SEQUENCE                  73164 23-NOV-17       03-DEC-17       FIRST_SEQ                                    
+       372 TABLE                     73165 23-NOV-17       03-DEC-17       FIRST_T                                      
+       373 INDEX                     73166 23-NOV-17       03-DEC-17       FIRST_PK                                     
+       374 TABLE                     73203 21-DEC-17       31-DEC-17       TEST                                         
+       375 PACKAGE BODY              73220 23-DEC-17       02-JAN-18       TEST_PKG                                     
+       376 PACKAGE                   73219 23-DEC-17       02-JAN-18       TEST_PKG                                     
+       377 FUNCTION                  73229 23-DEC-17       02-JAN-18       TESTFUNC                                     
+       378 PROCEDURE                 73228 23-DEC-17       02-JAN-18       TESTPROC                                     
+       379 PROCEDURE                 73230 23-DEC-17       02-JAN-18       GET_EMP_RS                                   
+       380 TABLE                     73231 23-DEC-17       02-JAN-18       WAVEHEIGHT                                   
+
+10 rows selected.
+
+AUTHORS
+
+   ID_XREF AUTHOR                         END_DATE                                                                      
+---------- ------------------------------ ---------------                                                               
+       371 First_Seq                      03-DEC-17                                                                     
+       372 First_T                        04-DEC-17                                                                     
+       373 First_Pk                       03-DEC-17                                                                     
+       374 Test                           01-JAN-18                                                                     
+       375 Test_Pkg                       02-JAN-18                                                                     
+       376 Test_Pkg                       03-JAN-18                                                                     
+       377 Testfunc                       02-JAN-18                                                                     
+       378 Testproc                       03-JAN-18                                                                     
+       379 Get_Emp_Rs                     02-JAN-18                                                                     
+       380 Waveheight                     03-JAN-18                                                                     
+
+10 rows selected.
+
+------------------------------                                                                                          
+err_nm: E_AT_DATE_END, err_id: 44                                                                                       
+------------------------------                                                                                          
+Exceptions: delete 0 row(s)                                                                                             
+Exceptions: update 0 row(s)                                                                                             
+Exceptions: add 5 row(s)                                                                                                
+
+PL/SQL procedure successfully completed.
+
+
+    ERR_ID ERR_NM                                                                                                       
+---------- ------------------------------------------------------------------------------------------                   
+        44 E_AT_DATE_END                                                                                                
+
+
+   ID_XREF XREF_TABLE_NAME                SRC_KEY_VAL                        ERR_ID CREATE_DATE                         
+---------- ------------------------------ ------------------------------ ---------- ---------------                     
+       372 PRODUCT_XREF                   04-DEC-17                              44 29-SEP-18                           
+       374 PRODUCT_XREF                   01-JAN-18                              44 29-SEP-18                           
+       376 PRODUCT_XREF                   03-JAN-18                              44 29-SEP-18                           
+       378 PRODUCT_XREF                   03-JAN-18                              44 29-SEP-18                           
+       380 PRODUCT_XREF                   03-JAN-18                              44 29-SEP-18                           
+
+
+2 rows merged.
+
+
+Commit complete.
+
+
+SECOND SCAN
+
+AUTHORS
+
+   ID_XREF AUTHOR                         END_DATE                                                                      
+---------- ------------------------------ ---------------                                                               
+       371 First_Seq                      03-DEC-17                                                                     
+       372 First_T                        01-DEC-17                                                                     
+       373 First_Pk                       03-DEC-17                                                                     
+       374 Test                           31-DEC-17                                                                     
+       375 Test_Pkg                       02-JAN-18                                                                     
+       376 Test_Pkg                       03-JAN-18                                                                     
+       377 Testfunc                       02-JAN-18                                                                     
+       378 Testproc                       03-JAN-18                                                                     
+       379 Get_Emp_Rs                     02-JAN-18                                                                     
+       380 Waveheight                     03-JAN-18                                                                     
+
+10 rows selected.
+
+------------------------------                                                                                          
+err_nm: E_AT_DATE_END, err_id: 44                                                                                       
+------------------------------                                                                                          
+Exceptions: delete 1 row(s)                                                                                             
+Exceptions: update 1 row(s)                                                                                             
+Exceptions: add 0 row(s)                                                                                                
+
+PL/SQL procedure successfully completed.
+
+
+    ERR_ID ERR_NM                                                                                                       
+---------- ------------------------------------------------------------------------------------------                   
+        44 E_AT_DATE_END                                                                                                
+
+
+   ID_XREF XREF_TABLE_NAME                SRC_KEY_VAL                        ERR_ID CREATE_DATE                         
+---------- ------------------------------ ------------------------------ ---------- ---------------                     
+       372 PRODUCT_XREF                   01-DEC-17                              44 29-SEP-18                           
+       376 PRODUCT_XREF                   03-JAN-18                              44 29-SEP-18                           
+       378 PRODUCT_XREF                   03-JAN-18                              44 29-SEP-18                           
+       380 PRODUCT_XREF                   03-JAN-18                              44 29-SEP-18                           
+
