@@ -10,7 +10,7 @@ CREATE TABLE PRODUCT_XREF (
     PRIMARY KEY (ID_XREF)
 )
 ;
---Таблица ошибок:
+--РўР°Р±Р»РёС†Р° РѕС€РёР±РѕРє:
 create sequence errors_seq;
 CREATE TABLE ERRORS (
   ERR_ID            NUMBER NOT NULL ENABLE, 
@@ -19,11 +19,11 @@ CREATE TABLE ERRORS (
     PRIMARY KEY (ERR_ID)
 )
 ;
---Таблица несоответствий :
+--РўР°Р±Р»РёС†Р° РЅРµСЃРѕРѕС‚РІРµС‚СЃС‚РІРёР№ :
 CREATE TABLE EXCEPTIONS (
   ID_XREF           NUMBER, 
   XREF_TABLE_NAME   VARCHAR2(30 CHAR),
-  SRC_KEY_VAL       VARCHAR2(255 CHAR),  -- Значение из входной таблицы
+  SRC_KEY_VAL       VARCHAR2(255 CHAR),  -- Р—РЅР°С‡РµРЅРёРµ РёР· РІС…РѕРґРЅРѕР№ С‚Р°Р±Р»РёС†С‹
   ERR_ID            NUMBER NOT NULL ENABLE, 
   CREATE_DATE       DATE,
   CONSTRAINT EXCEPTIONS_ERR_ID_FK 
@@ -32,9 +32,9 @@ CREATE TABLE EXCEPTIONS (
     ENABLE
 )
 ;
---Фактически уникальный ключ этой таблицы ID_XREF+XREF_TABLE_NAME+ERR_ID
---Имя и структуру входной таблицы придумать самостоятельно.
---Как примеры:
+--Р¤Р°РєС‚РёС‡РµСЃРєРё СѓРЅРёРєР°Р»СЊРЅС‹Р№ РєР»СЋС‡ СЌС‚РѕР№ С‚Р°Р±Р»РёС†С‹ ID_XREF+XREF_TABLE_NAME+ERR_ID
+--РРјСЏ Рё СЃС‚СЂСѓРєС‚СѓСЂСѓ РІС…РѕРґРЅРѕР№ С‚Р°Р±Р»РёС†С‹ РїСЂРёРґСѓРјР°С‚СЊ СЃР°РјРѕСЃС‚РѕСЏС‚РµР»СЊРЅРѕ.
+--РљР°Рє РїСЂРёРјРµСЂС‹:
 create sequence authors_seq;
 CREATE TABLE AUTHORS (
   ID_XREF           NUMBER(38,0)   NOT NULL ENABLE, 

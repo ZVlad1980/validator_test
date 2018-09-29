@@ -23,8 +23,7 @@ create or replace package etl_api is
    * p_validate_stmt  - Необязательный. Сравнительный Constraint определяющий совпадение с эталоном (Пример: PRODUCT_XREF.OUT_OF_PRINT_DATE = AUTHORS.END_DATE)
    *                    Если Constraint не выполнен, то входные данные не совпадают с эталоном.
    *                    Сравнительный Constraint может быть сложным и состоять из нескольких сравнений по нескольким полям.
-   *                    Если не задан - констрейнт будет p_base_col = p_validate_col
-   * 
+   *                    Если параметр не задан - будет использован констрейн p_base_col = p_validate_col
    */
   procedure validate_data(
      p_base_table     varchar2,

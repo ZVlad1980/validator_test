@@ -114,8 +114,7 @@ and    ' || p_base_table || '.' || p_join_col || ' = ' || p_validate_table || '.
        t.is_error
 from   (' || l_query || ') t where t.is_error = ''Y'' or t.err_id is not null'
 ;
-    put('p_err_id: ' || p_err_id);
-    put(l_query);
+    --put(l_query);
     
     open l_result for l_query
       using p_err_id;
@@ -237,6 +236,7 @@ from   (' || l_query || ') t where t.is_error = ''Y'' or t.err_id is not null'
    *                    Если Constraint не выполнен, то входные данные не совпадают с эталоном.
    *                    Сравнительный Constraint может быть сложным и состоять из нескольких сравнений по нескольким полям.
    *                    Если не задан - констрейнт будет p_base_col = p_validate_col
+   *                    Если параметр не задан - будет использован констрейн p_base_col = p_validate_col
    * 
    */
   procedure validate_data(
@@ -253,6 +253,11 @@ from   (' || l_query || ') t where t.is_error = ''Y'' or t.err_id is not null'
   begin
     
     l_err_id := get_error_id(p_err_nm);
+    
+    put(rpad('-', 30, '-'));
+    put('err_nm: ' || p_err_nm || ', ', false);
+    put('err_id: ' || l_err_id);
+    put(rpad('-', 30, '-'));
     
     l_cursor := get_cursor(
       p_base_table     => p_base_table    ,
